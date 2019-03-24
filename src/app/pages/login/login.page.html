@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Bem vindo</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-img src="../assets/logo.png"></ion-img>
+    <!-- <ion-list>
+         <ion-radio-group>
+             <ion-list-header>
+                 Selecione o tipo de usuário:
+             </ion-list-header>
+
+             <ion-item>
+                 <ion-label>Cliente</ion-label>
+                 <ion-radio value="1"></ion-radio>
+             </ion-item>
+
+             <ion-item>
+                 <ion-label>Mecanico</ion-label>
+                 <ion-radio value="2"></ion-radio>
+             </ion-item>
+         </ion-radio-group>
+     </ion-list>
+ -->
+    <ion-list>
+        <ion-list-header>
+            Informe o Email e senha:
+        </ion-list-header>
+        <form [formGroup]="form" (ngSubmit)="logForm()">
+            <ion-item>
+                <ion-label>Email</ion-label>
+                <ion-input type="text" formControlName="email"></ion-input>
+                <p *ngIf="form.get('email').hasError('required') && form.dirty" class="error"> Informe um email</p>
+            </ion-item>
+            <ion-item>
+                <ion-label>Senha</ion-label>
+                <ion-input type="password" formControlName="senha"></ion-input>
+                <p *ngIf="form.get('senha').hasError('required') && form.dirty" class="error"> Informe uma senha</p>
+
+            </ion-item>
+            <div style="text-align: center">
+                <ion-button class="secondary" type="submit" [disabled]="!form.valid">Entrar</ion-button>
+            </div>
+        </form>
+    </ion-list>
+</ion-content>
